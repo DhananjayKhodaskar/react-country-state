@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import {
   List,
@@ -13,6 +13,7 @@ const CountrySelector = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("India");
   const [states, setStates] = useState([]);
+  const indiaRef = useRef(null);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -35,25 +36,37 @@ const CountrySelector = () => {
     setStates(countryData ? countryData.states : []);
   }, [selectedCountry, countries]);
 
+  useEffect(() => {
+    if (indiaRef.current) {
+      indiaRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [countries]);
+
   return (
     <Box
       sx={{
         width: "100%",
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "#222831",
         alignContent: "center",
         justifyContent: "center",
+        gap: "2px",
       }}
     >
       <Box>
-        <Typography variant="h4" sx={{ backgroundColor: "#393E46" }}>
+        <Typography
+          variant="h4"
+          sx={{ backgroundColor: "#393E46", cursor: "default" }}
+        >
           Countries
         </Typography>
         <Divider sx={{ backgroundColor: "#222831" }} />
         <List
           sx={{
-            maxHeight: "100vh",
+            maxHeight: "90vh",
             overflow: "auto",
             backgroundColor: "#393E46",
           }}
@@ -64,6 +77,7 @@ const CountrySelector = () => {
               button
               onClick={() => setSelectedCountry(country.name)}
               selected={country.name === selectedCountry}
+              ref={country.name === "India" ? indiaRef : null}
               sx={{
                 "&:hover": {
                   backgroundColor: "#EEEEEE",
@@ -79,16 +93,20 @@ const CountrySelector = () => {
           ))}
         </List>
       </Box>
+
       <Box>
-        <Typography variant="h4" sx={{ backgroundColor: "#393E46" }}>
+        <Typography
+          variant="h4"
+          sx={{ backgroundColor: "#393E46", cursor: "default" }}
+        >
           States in {selectedCountry}
         </Typography>
         <Divider sx={{ backgroundColor: "#222831" }} />
         <List
           sx={{
-            maxHeight: "100vh",
+            maxHeight: "90vh",
             overflow: "auto",
-            cursor: "pointer",
+            cursor: "default",
             backgroundColor: "#393E46",
             height: "100vh",
           }}

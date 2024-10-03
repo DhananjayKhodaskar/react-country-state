@@ -12,6 +12,8 @@ function App() {
         alignContent: "center",
         width: "100vw",
         color: "#EEEEEE",
+        backgroundColor: "#222831",
+        height: "100vh",
       }}
     >
       <CountrySelector />
