@@ -59,7 +59,7 @@ const CountrySelector = () => {
       <Box>
         <Typography
           variant="h4"
-          sx={{ backgroundColor: "#393E46", cursor: "default" }}
+          sx={{ backgroundColor: "#393E46", cursor: "default", padding: 1 }}
         >
           Countries
         </Typography>
@@ -97,7 +97,7 @@ const CountrySelector = () => {
       <Box>
         <Typography
           variant="h4"
-          sx={{ backgroundColor: "#393E46", cursor: "default" }}
+          sx={{ backgroundColor: "#393E46", cursor: "default", padding: 1 }}
         >
           States in {selectedCountry}
         </Typography>
