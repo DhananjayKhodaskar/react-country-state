@@ -79,18 +79,18 @@ const CountrySelector = () => {
           ))}
         </List>
       </Box>
-
       <Box>
         <Typography variant="h4" sx={{ backgroundColor: "#393E46" }}>
           States in {selectedCountry}
         </Typography>
-        <Divider sx={{ backgroundColor: "#393E46" }} />
+        <Divider sx={{ backgroundColor: "#222831" }} />
         <List
           sx={{
             maxHeight: "100vh",
             overflow: "auto",
             cursor: "pointer",
             backgroundColor: "#393E46",
+            height: "100vh",
           }}
         >
           {states.length > 0 ? (
