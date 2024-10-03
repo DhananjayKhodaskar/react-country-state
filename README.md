@@ -22,9 +22,7 @@ https://github.com/user-attachments/assets/0d9f4591-f96d-45ab-9be4-9aac3d2ff66f
 4. **Run Project:**
    - `npm run dev`
 
-### Link - 
-### (Note : This Link May Not Work)
-https://d57dpv-5173.csb.app/
+- Please note that the provided link may not work. It is recommended to set up the project locally for a more reliable experience. Here is the link for reference: https://d57dpv-5173.csb.app/
 
 
 
